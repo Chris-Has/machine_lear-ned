@@ -1,0 +1,32 @@
+<h1 id="installing-fastai-cpu-only-on-windows-10">Installing fastai (CPU only) on windows 10</h1>
+
+<p><b>Step 1:</b> Install Anaconda<br />
+  Default settings are fine<br />
+<b>Step 2:</b> Create conda environment<br />
+  <code class="language-plaintext highlighter-rouge">conda create -n fastai</code><br />
+<b>Step 3:</b> Activate conda environment<br />
+  <code class="language-plaintext highlighter-rouge">activate fastai</code><br />
+<b>Step 4:</b> Install fastai and pytorch<br />
+   <code class="language-plaintext highlighter-rouge">conda install -c fastai -c pytorch fastai</code><br />
+<b>Step 5:</b> Install jupyter<br />
+  <code class="language-plaintext highlighter-rouge">conda install jupyter</code><br />
+<b>Step 5:</b> Test installation<br />
+  Use example from first lesson</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+os.environ["CUDA_VISIBLE_DEVICES"]="-1" #Tricks pytorch into thinking a gpu is not available - run each time
+from fastai.vision.all import *
+
+defaults.device = torch.device('cpu')
+defaults.device
+path = untar_data(URLs.PETS)/'images'
+
+def is_cat(x): return x[0].isupper();
+dls = ImageDataLoaders.from_name_func(
+    path, get_image_files(path), valid_pct=0.2, seed=42,
+    label_func=is_cat, item_tfms=Resize(224),
+    device='cpu',
+    num_workers=0)
+
+learn = cnn_learner(dls, resnet34, metrics=error_rate)
+learn.fine_tune(1)
+</code></pre></div></div>
