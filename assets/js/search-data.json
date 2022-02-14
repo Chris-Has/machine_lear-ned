@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "Windows_fastai_install",
+            "title": "Installing fastai (CPU only) on windows 10",
             "content": "Installing fastai (CPU only) on windows 10 . Step 1: Install Anaconda   Default settings are fine Step 2: Create conda environment   conda create -n fastai Step 3: Activate conda environment   activate fastai Step 4: Install fastai and pytorch   conda install -c fastai -c pytorch fastai Step 5: Install jupyter   conda install jupyter Step 5: Test installation   Use example from first lesson . import os os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;]=&quot;-1&quot; #Tricks pytorch into thinking a gpu is not available - run each time from fastai.vision.all import * defaults.device = torch.device(&#39;cpu&#39;) defaults.device path = untar_data(URLs.PETS)/&#39;images&#39; def is_cat(x): return x[0].isupper(); dls = ImageDataLoaders.from_name_func( path, get_image_files(path), valid_pct=0.2, seed=42, label_func=is_cat, item_tfms=Resize(224), device=&#39;cpu&#39;, num_workers=0) learn = cnn_learner(dls, resnet34, metrics=error_rate) learn.fine_tune(1) .",
-            "url": "https://chris-has.github.io/machine_lear-ned/2021/02/13/windows_fastai_install.html",
-            "relUrl": "/2021/02/13/windows_fastai_install.html",
+            "url": "https://chris-has.github.io/machine_lear-ned/markdown/2021/02/13/windows_fastai_install.html",
+            "relUrl": "/markdown/2021/02/13/windows_fastai_install.html",
             "date": " • Feb 13, 2021"
         }
         
