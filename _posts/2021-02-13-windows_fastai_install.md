@@ -1,3 +1,10 @@
+---
+toc: true
+layout: post
+description: A tutorial on how to install and run the CPU version of fastai
+categories: [markdown]
+title: Installing fastai (CPU only) on windows 10
+---
 # Installing fastai (CPU only) on windows 10
 
 <b>Step 1:</b> Install Anaconda\
